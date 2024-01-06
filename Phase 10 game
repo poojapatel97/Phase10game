@@ -1,0 +1,27 @@
+import random
+
+def initialize_deck():
+    colors = ['Red', 'Yellow', 'Green', 'Blue']
+    numbers = list(range(1, 10))
+    deck = [(color, number) for color in colors for number in numbers]
+    random.shuffle(deck)
+    return deck
+
+def deal_hands(deck, num_players):
+    hands = [deck[i::num_players] for i in range(num_players)]
+    return hands
+
+def play_phase_10_round():
+    num_players = int(input("Enter the number of players: "))
+    deck = initialize_deck()
+    hands = deal_hands(deck, num_players)
+
+    for player, hand in enumerate(hands, start=1):
+        print(f"Player {player}'s hand: {hand}")
+
+    # Implement the game logic for completing phases in this round
+
+    print("Round complete!")
+
+# Run the game
+play_phase_10_round()
